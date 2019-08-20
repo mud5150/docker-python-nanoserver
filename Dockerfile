@@ -1,4 +1,4 @@
-FROM microsoft/windowsservercore:1709 as base
+FROM microsoft/windowsservercore:1809 as base
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -53,7 +53,7 @@ RUN Write-Host ('Installing pip=={0} ...' -f $env:PYTHON_PIP_VERSION); \
 	\
 	Write-Host 'Complete.';
 
-FROM microsoft/nanoserver:1709
+FROM microsoft/nanoserver:1809
 
 COPY --from=base ["Python", "Python"]
 
